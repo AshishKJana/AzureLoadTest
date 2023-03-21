@@ -8,7 +8,7 @@ subnetId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sam
 properties:
   userPropertyFile: 'user.properties'
 configurationFiles:
-  - 'SampleData.csv'
+  - 'Parameterization.csv'
 failureCriteria:
   - avg(response_time_ms) > 300
   - percentage(error) > 50
