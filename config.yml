@@ -4,22 +4,13 @@ displayName: Sample Test
 testPlan: AzureLoadTestGroupOne.jmx
 description: Load test website home page Pet Store
 engineInstances: 1
-properties:
-  userPropertyFile: 'user.properties'
+subnetId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.Network/virtualNetworks/load-testing-vnet/subnets/load-testing
 configurationFiles:
-  - 'Parameterization.csv'
+  - ApacheJMeter.jar
 failureCriteria:
   - avg(response_time_ms) > 300
   - percentage(error) > 50
-  - GetCustomerDetails: avg(latency_ms) >200
 splitAllCSVs: True
-env:
-  - name: my-variable
-    value: my-value
-secrets:
-  - name: my-secret
-    value: https://akv-contoso.vault.azure.net/secrets/MySecret/abc1234567890def12345
 certificates:
   - name: my-certificate
     value: https://akv-contoso.vault.azure.net/certificates/MyCertificate/abc1234567890def12345
-keyVaultReferenceIdentity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
